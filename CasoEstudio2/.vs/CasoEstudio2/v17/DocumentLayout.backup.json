@@ -1,0 +1,97 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|d:\\u\\sextocuatri\\programaci\u00F3n_avanzada\\caso2\\casoestudio2\\casoestudio2\\views\\casas\\alquiler.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|solutionrelative:casoestudio2\\views\\casas\\alquiler.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|d:\\u\\sextocuatri\\programaci\u00F3n_avanzada\\caso2\\casoestudio2\\casoestudio2\\controllers\\casascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|solutionrelative:casoestudio2\\controllers\\casascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|d:\\u\\sextocuatri\\programaci\u00F3n_avanzada\\caso2\\casoestudio2\\casoestudio2\\views\\casas\\consulta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|solutionrelative:casoestudio2\\views\\casas\\consulta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|d:\\u\\sextocuatri\\programaci\u00F3n_avanzada\\caso2\\casoestudio2\\casoestudio2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{760F0FB6-A6E0-447E-A576-173F47DE09A7}|CasoEstudio2\\CasoEstudio2.csproj|solutionrelative:casoestudio2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Alquiler.cshtml",
+              "DocumentMoniker": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Views\\Casas\\Alquiler.cshtml",
+              "RelativeDocumentMoniker": "CasoEstudio2\\Views\\Casas\\Alquiler.cshtml",
+              "ToolTip": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Views\\Casas\\Alquiler.cshtml",
+              "RelativeToolTip": "CasoEstudio2\\Views\\Casas\\Alquiler.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T23:32:32.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CasoEstudio2\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CasoEstudio2\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T22:54:17.172Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Consulta.cshtml",
+              "DocumentMoniker": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Views\\Casas\\Consulta.cshtml",
+              "RelativeDocumentMoniker": "CasoEstudio2\\Views\\Casas\\Consulta.cshtml",
+              "ToolTip": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Views\\Casas\\Consulta.cshtml",
+              "RelativeToolTip": "CasoEstudio2\\Views\\Casas\\Consulta.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T23:32:12.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CasasController.cs",
+              "DocumentMoniker": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Controllers\\CasasController.cs",
+              "RelativeDocumentMoniker": "CasoEstudio2\\Controllers\\CasasController.cs",
+              "ToolTip": "D:\\U\\sextoCuatri\\Programaci\u00F3n_Avanzada\\Caso2\\CasoEstudio2\\CasoEstudio2\\Controllers\\CasasController.cs",
+              "RelativeToolTip": "CasoEstudio2\\Controllers\\CasasController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwC0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T23:12:07.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

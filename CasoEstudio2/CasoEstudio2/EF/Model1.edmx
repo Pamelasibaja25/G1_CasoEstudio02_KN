@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CasoEstudioKNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CasasSistema">
+          <Key>
+            <PropertyRef Name="IdCasa" />
+          </Key>
+          <Property Name="IdCasa" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripcionCasa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PrecioCasa" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="UsuarioAlquiler" Type="varchar" MaxLength="30" />
+          <Property Name="FechaAlquiler" Type="datetime" />
+        </EntityType>
+        <Function Name="SP_AlquilarCasa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCasa" Type="bigint" Mode="In" />
+          <Parameter Name="UsuarioAlquiler" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_CasasDisponibles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_ConsultarCasas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_ObtenerCasaPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCasa" Type="bigint" Mode="In" />
+        </Function>
+        <EntityContainer Name="CasoEstudioKNModelStoreContainer">
+          <EntitySet Name="CasasSistema" EntityType="Self.CasasSistema" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CasoEstudioKNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CasasSistema">
+          <Key>
+            <PropertyRef Name="IdCasa" />
+          </Key>
+          <Property Name="IdCasa" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionCasa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrecioCasa" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="UsuarioAlquiler" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FechaAlquiler" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="CasoEstudioKNEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CasasSistemas" EntityType="Self.CasasSistema" />
+          <FunctionImport Name="SP_AlquilarCasa">
+            <Parameter Name="IdCasa" Mode="In" Type="Int64" />
+            <Parameter Name="UsuarioAlquiler" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CasasDisponibles" ReturnType="Collection(CasoEstudioKNModel.SP_CasasDisponibles_Result)" />
+          <FunctionImport Name="SP_ConsultarCasas" ReturnType="Collection(CasoEstudioKNModel.SP_ConsultarCasas_Result)" />
+          <FunctionImport Name="SP_ObtenerCasaPorId" ReturnType="Collection(CasoEstudioKNModel.SP_ObtenerCasaPorId_Result)">
+            <Parameter Name="IdCasa" Mode="In" Type="Int64" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_CasasDisponibles_Result">
+          <Property Type="Int64" Name="IdCasa" Nullable="false" />
+          <Property Type="String" Name="DescripcionCasa" Nullable="false" MaxLength="30" />
+          <Property Type="Decimal" Name="PrecioCasa" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="SP_ConsultarCasas_Result">
+          <Property Type="Int64" Name="IdCasa" Nullable="false" />
+          <Property Type="String" Name="DescripcionCasa" Nullable="false" MaxLength="30" />
+          <Property Type="Decimal" Name="PrecioCasa" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="UsuarioAlquiler" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="FechaAlquiler" Nullable="true" MaxLength="4000" />
+        </ComplexType>
+        <ComplexType Name="SP_ObtenerCasaPorId_Result">
+          <Property Type="Int64" Name="IdCasa" Nullable="false" />
+          <Property Type="String" Name="DescripcionCasa" Nullable="false" MaxLength="30" />
+          <Property Type="Decimal" Name="PrecioCasa" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="UsuarioAlquiler" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="FechaAlquiler" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CasoEstudioKNModelStoreContainer" CdmEntityContainer="CasoEstudioKNEntities">
+          <EntitySetMapping Name="CasasSistemas">
+            <EntityTypeMapping TypeName="CasoEstudioKNModel.CasasSistema">
+              <MappingFragment StoreEntitySet="CasasSistema">
+                <ScalarProperty Name="IdCasa" ColumnName="IdCasa" />
+                <ScalarProperty Name="DescripcionCasa" ColumnName="DescripcionCasa" />
+                <ScalarProperty Name="PrecioCasa" ColumnName="PrecioCasa" />
+                <ScalarProperty Name="UsuarioAlquiler" ColumnName="UsuarioAlquiler" />
+                <ScalarProperty Name="FechaAlquiler" ColumnName="FechaAlquiler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_AlquilarCasa" FunctionName="CasoEstudioKNModel.Store.SP_AlquilarCasa" />
+          <FunctionImportMapping FunctionImportName="SP_CasasDisponibles" FunctionName="CasoEstudioKNModel.Store.SP_CasasDisponibles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CasoEstudioKNModel.SP_CasasDisponibles_Result">
+                <ScalarProperty Name="IdCasa" ColumnName="IdCasa" />
+                <ScalarProperty Name="DescripcionCasa" ColumnName="DescripcionCasa" />
+                <ScalarProperty Name="PrecioCasa" ColumnName="PrecioCasa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ConsultarCasas" FunctionName="CasoEstudioKNModel.Store.SP_ConsultarCasas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CasoEstudioKNModel.SP_ConsultarCasas_Result">
+                <ScalarProperty Name="IdCasa" ColumnName="IdCasa" />
+                <ScalarProperty Name="DescripcionCasa" ColumnName="DescripcionCasa" />
+                <ScalarProperty Name="PrecioCasa" ColumnName="PrecioCasa" />
+                <ScalarProperty Name="UsuarioAlquiler" ColumnName="UsuarioAlquiler" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaAlquiler" ColumnName="FechaAlquiler" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ObtenerCasaPorId" FunctionName="CasoEstudioKNModel.Store.SP_ObtenerCasaPorId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CasoEstudioKNModel.SP_ObtenerCasaPorId_Result">
+                <ScalarProperty Name="IdCasa" ColumnName="IdCasa" />
+                <ScalarProperty Name="DescripcionCasa" ColumnName="DescripcionCasa" />
+                <ScalarProperty Name="PrecioCasa" ColumnName="PrecioCasa" />
+                <ScalarProperty Name="UsuarioAlquiler" ColumnName="UsuarioAlquiler" />
+                <ScalarProperty Name="FechaAlquiler" ColumnName="FechaAlquiler" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
