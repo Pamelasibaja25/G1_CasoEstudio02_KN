@@ -43,7 +43,7 @@
           <Property Name="FechaAlquiler" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="CasoEstudioKNEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CasasSistemas" EntityType="Self.CasasSistema" />
+          <EntitySet Name="CasasSistema" EntityType="Self.CasasSistema" />
           <FunctionImport Name="SP_AlquilarCasa">
             <Parameter Name="IdCasa" Mode="In" Type="Int64" />
             <Parameter Name="UsuarioAlquiler" Mode="In" Type="String" />
@@ -80,7 +80,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CasoEstudioKNModelStoreContainer" CdmEntityContainer="CasoEstudioKNEntities">
-          <EntitySetMapping Name="CasasSistemas">
+          <EntitySetMapping Name="CasasSistema">
             <EntityTypeMapping TypeName="CasoEstudioKNModel.CasasSistema">
               <MappingFragment StoreEntitySet="CasasSistema">
                 <ScalarProperty Name="IdCasa" ColumnName="IdCasa" />
@@ -138,10 +138,10 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -1,33 +1,71 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Inicio";
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+    <section class="row mt-4 mb-4" aria-labelledby="tituloCaso">
+        <div class="col-md-8">
+            <h1 id="tituloCaso">Bienvenido al Caso de Estudio 2</h1>
+           
+            <p>
+                Podés iniciar revisando las casas disponibles o ingresando directamente al módulo
+                de alquiler.
+            </p>
+            <p class="mt-3">
+                <a href="@Url.Action("Consulta", "Casas")" class="btn btn-primary btn-lg me-2">
+                    Ver casas
+                </a>
+                <a href="@Url.Action("Alquiler", "Casas")" class="btn btn-outline-secondary btn-lg">
+                    Ir a alquiler
+                </a>
+            </p>
+        </div>
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Información rápida</h5>
+                    <p class="card-text">
+                        Proyecto: <strong>CasoEstudio2</strong><br />
+                        Módulo: <strong>Casas en alquiler</strong><br />
+                        Curso: <strong>Programación Avanzada</strong><br/>
+                        Grupo: <strong>Grupo 2</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <section class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="h5">Consulta de casas</h3>
+                    <p>
+                        Visualizá las casas filtradas por rango de precio, ordenadas por estado
+                        (disponibles primero y luego reservadas).
+                    </p>
+                    <a class="btn btn-sm btn-outline-primary" href="@Url.Action("Consulta", "Casas")">
+                        Ir a consulta &raquo;
+                    </a>
+                </div>
+            </div>
         </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+        <section class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="h5">Alquiler</h3>
+                    <p>
+                        Seleccioná una casa disponible, revisá su precio y registrá el usuario
+                        que la va a alquilar. El sistema actualiza automáticamente la fecha.
+                    </p>
+                    <a class="btn btn-sm btn-outline-primary" href="@Url.Action("Alquiler", "Casas")">
+                        Ir a alquiler &raquo;
+                    </a>
+                </div>
+            </div>
         </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+
+
     </div>
 </main>

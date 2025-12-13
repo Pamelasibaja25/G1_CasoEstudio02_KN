@@ -1,17 +1,15 @@
 ﻿using CasoEstudio2.Models;
+using CasoEstudio2.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using CasoEstudio2.EF;
-
 
 namespace CasoEstudio2.Controllers
 {
     public class CasasController : Controller
     {
-        //  CONSULTA DE CASAS
+
         [HttpGet]
         public ActionResult Consulta()
         {
@@ -23,36 +21,44 @@ namespace CasoEstudio2.Controllers
         {
             using (var context = new CasoEstudioKNEntities())
             {
-                // EJECUTAR SP
+                // Ejecutar SP_ConsultarCasas
                 var data = context.SP_ConsultarCasas().ToList();
 
-                // Convertir en modelo propio
+                // Mapear al modelo propio
                 var casas = data.Select(c => new CasasModel
                 {
                     IdCasa = c.IdCasa,
                     DescripcionCasa = c.DescripcionCasa,
                     PrecioCasa = c.PrecioCasa,
                     UsuarioAlquiler = c.UsuarioAlquiler,
-                    Estado = c.Estado,
-                    FechaAlquilerString = c.FechaAlquiler
+                    Estado = c.Estado,                     
+                    FechaAlquilerString = c.FechaAlquiler  
                 }).ToList();
 
                 return casas;
             }
         }
 
-        //  ALQUILER DE CASAS
         [HttpGet]
         public ActionResult Alquiler()
         {
             CargarCasasDisponibles();
-            return View();
+            return View(new CasasModel());
         }
+
 
         [HttpPost]
         public ActionResult Alquiler(CasasModel casa)
         {
-            if (string.IsNullOrEmpty(casa.UsuarioAlquiler))
+
+            if (casa.IdCasa <= 0)
+            {
+                ViewBag.Mensaje = "Debe seleccionar una casa.";
+                CargarCasasDisponibles();
+                return View(casa);
+            }
+
+            if (string.IsNullOrWhiteSpace(casa.UsuarioAlquiler))
             {
                 ViewBag.Mensaje = "Debe ingresar un usuario para alquilar.";
                 CargarCasasDisponibles();
@@ -61,23 +67,24 @@ namespace CasoEstudio2.Controllers
 
             using (var context = new CasoEstudioKNEntities())
             {
+
                 var resultado = context.SP_AlquilarCasa(
                     casa.IdCasa,
                     casa.UsuarioAlquiler
                 );
 
-                if (resultado >= 0)
+                if (resultado > 0)
                 {
                     return RedirectToAction("Consulta", "Casas");
                 }
 
-                ViewBag.Mensaje = "No fue posible alquilar la casa.";
+                ViewBag.Mensaje = "No fue posible alquilar la casa. Verifique que siga disponible.";
                 CargarCasasDisponibles();
                 return View(casa);
             }
         }
 
-        //  MÉTODOS DE APOYO
+
         private void CargarCasasDisponibles()
         {
             using (var context = new CasoEstudioKNEntities())
@@ -100,8 +107,9 @@ namespace CasoEstudio2.Controllers
             }
         }
 
+
         [HttpGet]
-        public ActionResult ObtenerPrecio(int id)
+        public ActionResult ObtenerPrecio(long id)
         {
             using (var context = new CasoEstudioKNEntities())
             {

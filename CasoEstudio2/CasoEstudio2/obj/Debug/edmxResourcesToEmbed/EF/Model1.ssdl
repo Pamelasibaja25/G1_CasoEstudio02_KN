@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CasoEstudioKNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CasasSistema">
+    <Key>
+      <PropertyRef Name="IdCasa" />
+    </Key>
+    <Property Name="IdCasa" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionCasa" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PrecioCasa" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="UsuarioAlquiler" Type="varchar" MaxLength="30" />
+    <Property Name="FechaAlquiler" Type="datetime" />
+  </EntityType>
+  <Function Name="SP_AlquilarCasa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCasa" Type="bigint" Mode="In" />
+    <Parameter Name="UsuarioAlquiler" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CasasDisponibles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_ConsultarCasas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_ObtenerCasaPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCasa" Type="bigint" Mode="In" />
+  </Function>
+  <EntityContainer Name="CasoEstudioKNModelStoreContainer">
+    <EntitySet Name="CasasSistema" EntityType="Self.CasasSistema" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

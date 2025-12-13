@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CasoEstudioKNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CasasSistema">
+    <Key>
+      <PropertyRef Name="IdCasa" />
+    </Key>
+    <Property Name="IdCasa" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionCasa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrecioCasa" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="UsuarioAlquiler" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FechaAlquiler" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="CasoEstudioKNEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CasasSistema" EntityType="Self.CasasSistema" />
+    <FunctionImport Name="SP_AlquilarCasa">
+      <Parameter Name="IdCasa" Mode="In" Type="Int64" />
+      <Parameter Name="UsuarioAlquiler" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CasasDisponibles" ReturnType="Collection(CasoEstudioKNModel.SP_CasasDisponibles_Result)" />
+    <FunctionImport Name="SP_ConsultarCasas" ReturnType="Collection(CasoEstudioKNModel.SP_ConsultarCasas_Result)" />
+    <FunctionImport Name="SP_ObtenerCasaPorId" ReturnType="Collection(CasoEstudioKNModel.SP_ObtenerCasaPorId_Result)">
+      <Parameter Name="IdCasa" Mode="In" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_CasasDisponibles_Result">
+    <Property Type="Int64" Name="IdCasa" Nullable="false" />
+    <Property Type="String" Name="DescripcionCasa" Nullable="false" MaxLength="30" />
+    <Property Type="Decimal" Name="PrecioCasa" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_ConsultarCasas_Result">
+    <Property Type="Int64" Name="IdCasa" Nullable="false" />
+    <Property Type="String" Name="DescripcionCasa" Nullable="false" MaxLength="30" />
+    <Property Type="Decimal" Name="PrecioCasa" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="UsuarioAlquiler" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="FechaAlquiler" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="SP_ObtenerCasaPorId_Result">
+    <Property Type="Int64" Name="IdCasa" Nullable="false" />
+    <Property Type="String" Name="DescripcionCasa" Nullable="false" MaxLength="30" />
+    <Property Type="Decimal" Name="PrecioCasa" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="UsuarioAlquiler" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="FechaAlquiler" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>
