@@ -11,7 +11,7 @@ namespace CasoEstudio2.Controllers
     {
 
         [HttpGet]
-        public ActionResult Consulta()
+        public ActionResult consultaCasas()
         {
             var resultado = ConsultarCasas();
             return View(resultado);
@@ -75,7 +75,7 @@ namespace CasoEstudio2.Controllers
 
                 if (resultado > 0)
                 {
-                    return RedirectToAction("Consulta", "Casas");
+                    return RedirectToAction("consultaCasas", "Casas");
                 }
 
                 ViewBag.Mensaje = "No fue posible alquilar la casa. Verifique que siga disponible.";

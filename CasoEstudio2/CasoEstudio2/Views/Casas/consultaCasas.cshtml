@@ -1,0 +1,40 @@
+﻿@model  List<CasoEstudio2.Models.CasasModel>
+
+@{
+    ViewBag.Title = "consultaCasas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card overflow-hidden">
+        <div class="d-flex align-items-center">
+            <h5 class="card-header mb-0">Consulta de Casas</h5>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Usuario</th>
+                        <th>Fecha Alquiler</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DescripcionCasa</td>
+                            <td>@item.PrecioCasa.ToString("N2")</td>
+                            <td>@item.UsuarioAlquiler</td>
+                            <td>@item.FechaAlquilerString</td>
+                            <td>@item.Estado</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
